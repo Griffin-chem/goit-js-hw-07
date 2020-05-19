@@ -1,7 +1,6 @@
 "use strict"
-const categoryList = Array.from(document.querySelectorAll("ul#categories>li.item"));
-console.log(`В списке ${categoryList.length} категории`);
-for (const category of categoryList) {
-  console.log(`Категория: ${category.querySelector("h2").textContent}`);
-  console.log(`Количество элементов: ${category.querySelectorAll("li").length}`);
-}
+const categoryList = document.querySelector("#categories");
+const categoryNumber = categoryList.children.length;
+console.log(`В списке ${categoryNumber} категории`);
+const categoryContent = [...categoryList.children].map(item => `Категория: ${item.children[0].textContent}\nКоличество элементов: ${item.children[1].children.length}`).join('\n');
+console.log(categoryContent);

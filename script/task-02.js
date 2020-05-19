@@ -8,10 +8,10 @@ const ingredients = [
   'Приправы',
 ];
 const parent = document.querySelector("ul#ingredients");
-let list = [];
-for (const ingredient of ingredients) {
+const list = ingredients.reduce((acc, ingredient) => {
   const listItem = document.createElement("li");
   listItem.textContent = ingredient;
-  list = [...list, listItem];
-};
+  acc = [...acc, listItem];
+  return acc
+}, []);
 parent.append(...list);
